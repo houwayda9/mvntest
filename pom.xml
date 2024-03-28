@@ -122,6 +122,12 @@
 					</includes>
 				</configuration>
 			</plugin>
+
+			<plugin>
+                                <groupId>org.jacoco</groupId>
+                                <artifactId>jacoco-maven-plugin</artifactId>
+                                <version>0.8.12-SNAPSHOT</version>
+                        </plugin>
 		</plugins>
 	</build>
 
