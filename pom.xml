@@ -96,9 +96,7 @@
 			<url>http://localhost:8081/repository/maven-snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
-	<localRepository>Users/qz/.m2/repository 
-        </localRepository>
-        <interactiveMode>true</interactiveMode>
+	
 
 	<build>
 		<plugins>
