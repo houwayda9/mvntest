@@ -154,6 +154,7 @@
 			</plugin>
 
 		</plugins>
+		<finalName>ski-app</finalName>
 	</build>
 
 </project>
