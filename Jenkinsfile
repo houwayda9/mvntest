@@ -69,7 +69,9 @@ stage('Docker Compose') {
                 script {
                     // Run Docker Compose
                     sh 'docker-compose up -d --build'
-                    
+                    def gitHash = sh(script: 'git rev-parse HEAD', returnStdout: true).trim()
+                    def imageName = "houwayda/devops_esprit:$gitHash"
+                    sh "docker tag houwayda/devops_esprit:latest $imageName"
                     docker.withRegistry('', 'registryCredential') {
                         sh " docker push houwayda/devops_esprit"
                    
