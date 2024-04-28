@@ -73,15 +73,13 @@ stage('Docker Compose') {
                     def latestTaggedImage = "houwayda/devops_esprit:latest"
                     def gitHashTaggedImage = "houwayda/devops_esprit:$gitHash"
                     
-                    sh "docker tag springboot-app $latestTaggedImage"
+                   
                     sh "docker tag springboot-app $gitHashTaggedImage"
 
                     // Push the images to Docker Hub
-                    sh "docker push $latestTaggedImage"
-                    sh "docker push $gitHashTaggedImage"
+                    
                     
                     docker.withRegistry('', 'registryCredential') {
-                        sh "docker push $latestTaggedImage"
                         sh "docker push $gitHashTaggedImage"
                    
                 }
