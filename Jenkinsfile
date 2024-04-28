@@ -11,20 +11,7 @@ pipeline {
 
 
 
-stage ('Git') {
-    steps {
-        
-        git "git@github.com:houwayda9/mvntest.git"
-       
-     
-        
-       
-        
-       
-        sh 'ls -al'
-        
-    }
-}
+
 
 stage('ARTIFACT CONSTRUCTION') {
             steps {
