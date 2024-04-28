@@ -60,19 +60,7 @@ stage ('MVN DEPLOY TO NEXUS') {
      )
             }
         }
-stage ('build image') {
-    steps {
-        script {
-            
-                    sh 'mvn clean'
-                    sh 'mvn install'
-                    sh "ls -la "
-                    sh ' docker build ./ -t houwayda/devops_esprit:latest'
-                    docker.withRegistry('', 'registryCredential') {
-                        sh " docker push houwayda/devops_esprit:latest "
-                   
-                }
-}
+
 
 
 }}
@@ -81,11 +69,12 @@ stage('Docker Compose') {
                 script {
                     // Run Docker Compose
                     sh 'docker-compose up -d --build'
+                    
                     docker.withRegistry('', 'registryCredential') {
                         sh " docker push houwayda/devops_esprit:composelatest "
                    
                 }
-                sh 'docker-compose down'
+                
                 
                 }
             }
