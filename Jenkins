@@ -8,23 +8,12 @@ pipeline {
 
     stages {
 
-stage ('TEST') {
-    steps {
-        sh 'ls -al'
-        
-    }
-}
-stage('Clear Workspace') {
-            steps {
-                // Clear the workspace before starting
-                cleanWs()
-            }
-        }
+
+
 
 stage ('Git') {
     steps {
-        sh 'git config --global user.email "houwayda.gouia@esprit.tn"';
-        sh 'git config --global user.name "houwayda9"';
+        
         git "https://github.com/houwayda9/mvntest.git"
        
      
