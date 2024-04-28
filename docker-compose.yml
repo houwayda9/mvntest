@@ -22,3 +22,4 @@ services:
     environment:
       MYSQL_DATABASE: stationSki
       MYSQL_ROOT_PASSWORD: root
+
