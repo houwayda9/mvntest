@@ -63,7 +63,7 @@ stage ('MVN DEPLOY TO NEXUS') {
 
 
 
-}}
+
 stage('Docker Compose') {
             steps {
                 script {
