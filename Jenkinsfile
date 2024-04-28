@@ -74,13 +74,13 @@ stage('Docker Compose') {
                     def gitHashTaggedImage = "houwayda/devops_esprit:$gitHash"
                     
                    
-                    sh "docker tag springboot-app $gitHashTaggedImage"
+                    sh "docker tag springboot-app ${env.BUILD_NUMBER}"
 
                     // Push the images to Docker Hub
                     
                     
                     docker.withRegistry('', 'registryCredential') {
-                        sh "docker push $gitHashTaggedImage"
+                        sh "docker push ${env.BUILD_NUMBER}"
                    
                 }
                  
@@ -89,5 +89,6 @@ stage('Docker Compose') {
                 }
             }
         }
+
 
 }}
