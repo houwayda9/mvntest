@@ -81,6 +81,7 @@ stage('Docker Compose') {
                     
                     docker.withRegistry('', 'registryCredential') {
                         sh "docker push $gitHashTaggedImage"
+                    sh 'docker-compose up'
                    
                 }
                  
