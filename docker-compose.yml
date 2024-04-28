@@ -12,6 +12,9 @@ services:
       MYSQL_USER: root
       MYSQL_PASSWORD: root
       MYSQL_PORT: 3306
+    depends_on:
+      - mysqldb
+      
   mysqldb: 
     container_name: mysqldb
     image: mysql
