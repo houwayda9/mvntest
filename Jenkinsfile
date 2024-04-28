@@ -70,11 +70,19 @@ stage('Docker Compose') {
                     // Run Docker Compose
                     sh 'docker-compose build'
                     def gitHash = sh(script: 'git rev-parse HEAD', returnStdout: true).trim()
-                    def imageName = "houwayda/devops_esprit:$gitHash"
-                    sh "docker tag springboot-app $imageName"
+                    def latestTaggedImage = "houwayda/devops_esprit:latest"
+                    def gitHashTaggedImage = "houwayda/devops_esprit:$gitHash"
+                    
+                    sh "docker tag springboot-app $latestTaggedImage"
+                    sh "docker tag springboot-app $gitHashTaggedImage"
+
+                    // Push the images to Docker Hub
+                    sh "docker push $latestTaggedImage"
+                    sh "docker push $gitHashTaggedImage"
                     
                     docker.withRegistry('', 'registryCredential') {
-                        sh " docker push $imageName"
+                        sh "docker push $latestTaggedImage"
+                        sh "docker push $gitHashTaggedImage"
                    
                 }
                  
