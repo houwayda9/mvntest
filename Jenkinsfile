@@ -73,7 +73,7 @@ stage('Docker Compose') {
                     def imageName = "houwayda/devops_esprit:$gitHash"
                     sh "docker tag houwayda/devops_esprit $imageName"
                     docker.withRegistry('', 'registryCredential') {
-                        sh " docker push houwayda/devops_esprit -t $imageName"
+                        sh " docker push houwayda/devops_esprit "
                    
                 }
                  
