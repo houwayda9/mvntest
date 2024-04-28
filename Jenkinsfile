@@ -14,7 +14,7 @@ pipeline {
 stage ('Git') {
     steps {
         
-        git "https://github.com/houwayda9/mvntest.git"
+        git "git@github.com:houwayda9/mvntest.git"
        
      
         
