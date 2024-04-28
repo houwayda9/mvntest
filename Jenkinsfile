@@ -71,7 +71,7 @@ stage('Docker Compose') {
                     sh 'docker-compose up -d --build'
                     
                     docker.withRegistry('', 'registryCredential') {
-                        sh " docker push houwayda/devops_esprit:composelatest "
+                        sh " docker push houwayda/devops_esprit"
                    
                 }
                 
